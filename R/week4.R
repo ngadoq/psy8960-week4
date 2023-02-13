@@ -9,3 +9,8 @@ wide_tbl <- import_tbl |> separate(qs, into = c("q1", "q2", "q3", "q4", "q5"), s
 sapply(wide_tbl[c("q1",  "q2", "q3", "q4", "q5")], as.integer)
 wide_tbl$datadate <- as.POSIXct(wide_tbl$datadate, format = "%b %d %Y, %H:%M:%S")
 wide_tbl[c("q1",  "q2", "q3", "q4", "q5")][wide_tbl[c("q1",  "q2", "q3", "q4", "q5")] == 0] <- NA
+
+
+
+
+wide_tbl <- wide_tbl[!is.na(wide_tbl$q2),]
